@@ -28,13 +28,23 @@
         app.controller('myCtrl', function($scope, $location) {
             $scope.myUrl = $location.absUrl();
         });
+        app.controller('myCtrl2', function($scope, $timeout) {
+            $scope.myHeader = "Olá, World!";
+            $timeout(function () {
+                $scope.myHeader = "Como você está hoje?";
+            }, 2000);
+        });
 	</script>
 </head>
 <body>
 	<div class="topo" ng-app="myApp">
         <div ng-controller="myCtrl">
-            <p>The url of this page is:</p>
+            <p>A url da página é:</p>
             <h3>{{myUrl}}</h3>
+        </div>
+        <div ng-app="myApp" ng-controller="myCtrl2"> 
+            <p>Este é o cabeçalho da página que vai mudar em 2 segundos:</p>
+            <h1>{{myHeader}}</h1>        
         </div>
 	</div>
 	<br><br>
