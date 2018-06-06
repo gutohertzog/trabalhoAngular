@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Módulo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- JQUERY -->
+	<script src="js/jquery-3.3.1.js"></script>
+
+	<!-- POPPER -->
+	<script src="js/popper.js"></script>
+
+	<!-- BOOTSTRAP v4.1 -->
+	<link rel="stylesheet" type="text/css" media="screen" href="bootstrap-4.1.1/css/bootstrap.css" />
+	<script src="bootstrap-4.1.1/js/bootstrap.js"></script>
+	<!-- https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+
+	<!-- ANGULARJS -->
+	<script src="angular-1.6.10/angular.js"></script>
+
+	<!-- arquivos de configuração personalizados -->
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<!-- <script src="main.js"></script> -->
+	<script>
+		var app = angular.module("myApp", []);
+
+		app.controller("myCtrl", function($scope) {
+			$scope.primeiroNome = "Guto";
+			$scope.ultimoNome = "Hertzog";
+		});
+
+		app.directive("testeDiretiva", function() {
+			return {
+				template : "Fui feito em um costrutor de diretiva!"
+			};
+		});
+	</script>
+</head>
+<body>
+	<div class="topo" ng-app="myApp">
+		<h3>Módulo</h3>
+		<div ng-controller="myCtrl">
+			{{ primeiroNome + " " + ultimoNome }}
+		</div>
+		<br>
+		<div teste-diretiva></div>
+	</div>
+	<br><br>
+	<a class="btn btn-info btn-sm" href="index.html" role="button">Voltar</a>
+</body>
+</html>

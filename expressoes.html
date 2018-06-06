@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Exemplo 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- JQUERY -->
+	<script src="js/jquery-3.3.1.js"></script>
+
+	<!-- POPPER -->
+	<script src="js/popper.js"></script>
+
+	<!-- BOOTSTRAP v4.1 -->
+	<link rel="stylesheet" type="text/css" media="screen" href="bootstrap-4.1.1/css/bootstrap.css" />
+	<script src="bootstrap-4.1.1/js/bootstrap.js"></script>
+	<!-- https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+
+	<!-- ANGULARJS -->
+	<script src="angular-1.6.10/angular.js"></script>
+
+	<!-- arquivos de configuração personalizados -->
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<!-- <script src="main.js"></script> -->
+	<script>
+		var app = angular.module('meuApp', []);
+		app.controller('meuCtrl', function($scope) {
+			$scope.primeiroNome= "Guto";
+			$scope.segundoNome= "Hertzog";
+		});
+	</script>
+</head>
+<body>
+	<div class="topo" ng-app="meuApp">
+		<h3>Expressões</h3>
+		<h4>Usando controller</h4>
+		<div ng-controller="meuCtrl">
+			Primeiro Nome: <input type="text" ng-model="primeiroNome"><br>
+			Último Nome: <input type="text" ng-model="segundoNome"><br>
+			Nome Completo: {{primeiroNome + " " + segundoNome}}
+		</div>
+		<br>
+		<h4>Alterando css com expressão</h4>
+		<div ng-init="myCol='red'">
+			<input style="background-color:{{myCol}}" ng-model="myCol">
+		</div>
+		<br>
+		<h4>Expressão com inicialização</h4>
+		<div ng-init="quantidade=1;custo=5">
+			<p>Total em Real: {{ quantidade * custo }}</p>
+			<p>Total em Real: <span ng-bind="quantidade * custo"></span></p>
+		</div>
+		<h4>Expressão com Objetos</h4>
+		<div ng-init="pessoa={primeiroNome:'Guto',ultimoNome:'Hertzog'}">
+			<p>O nome é {{ pessoa.ultimoNome }}</p>
+			<p>O nome é <span ng-bind="pessoa.ultimoNome"></span></p>
+		</div>
+		<br>
+		<h4>Arrays</h4>
+		<div ng-init="pontos=[1,15,19,2,40]">
+			<p>O terceiro resultado é {{ pontos[2] }}</p>
+			<p>O terceiro resultado é <span ng-bind="pontos[2]"></span></p>
+		</div>
+	</div>
+	<br><br>
+	<a class="btn btn-info btn-sm" href="index.html" role="button">Voltar</a>
+</body>
+</html>

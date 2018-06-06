@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Exemplo 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- JQUERY -->
+	<script src="js/jquery-3.3.1.js"></script>
+
+	<!-- POPPER -->
+	<script src="js/popper.js"></script>
+
+	<!-- BOOTSTRAP v4.1 -->
+	<link rel="stylesheet" type="text/css" media="screen" href="bootstrap-4.1.1/css/bootstrap.css" />
+	<script src="bootstrap-4.1.1/js/bootstrap.js"></script>
+	<!-- https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+
+	<!-- ANGULARJS -->
+	<script src="angular-1.6.10/angular.js"></script>
+
+	<!-- arquivos de configuração personalizados -->
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<!-- <script src="main.js"></script> -->
+</head>
+<body>
+	<div class="topo" ng-app="">
+		<h3>Exemplo 1</h3>
+		<h3>Sem script</h3>
+		<div>
+			<h4>Usando ng-bind e ng-model</h4>
+			<p>Nome <input type="text" ng-model="name"></p>
+			<p>O nome é <span ng-bind="name"></span></p>
+		</div>
+		<br>
+		<div ng-init="primeiroNome='Guto'">
+			<h4>Usando ng-init</h4>
+			<p>O nome é <span ng-bind="primeiroNome"></span></p>	
+		</div>
+		<br>
+		<div>
+			<h4>Expressão</h4>
+			<p>Minha primeira expressão: {{ 5 + 5 }}</p>
+		</div>
+		<br>
+		<div>
+			<h4>Expressão com ng-model</h4>
+			<p>Nome: <input type="text" ng-model="nome2"></p>
+			<p>{{nome2}}</p>
+		</div>
+	</div>
+	<br><br>
+	<a class="btn btn-info btn-sm" href="index.html" role="button">Voltar</a>
+</body>
+</html>

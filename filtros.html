@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Módulo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- JQUERY -->
+	<script src="js/jquery-3.3.1.js"></script>
+
+	<!-- POPPER -->
+	<script src="js/popper.js"></script>
+
+	<!-- BOOTSTRAP v4.1 -->
+	<link rel="stylesheet" type="text/css" media="screen" href="bootstrap-4.1.1/css/bootstrap.css" />
+	<script src="bootstrap-4.1.1/js/bootstrap.js"></script>
+	<!-- https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+
+	<!-- ANGULARJS -->
+	<script src="angular-1.6.10/angular.js"></script>
+
+	<!-- arquivos de configuração personalizados -->
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<!-- <script src="main.js"></script> -->
+	<script>
+        var app = angular.module('myApp', []);
+		app.controller('personCtrl', function($scope) {
+            $scope.firstName = "Guto",
+            $scope.lastName = "Hertzog"
+        });
+        app.controller('namesCtrl', function($scope) {
+            $scope.names = [
+                {name:'Jani',country:'Norway'},
+                {name:'Carl',country:'Sweden'},
+                {name:'Margareth',country:'England'},
+                {name:'Hege',country:'Norway'},
+                {name:'Joe',country:'Denmark'},
+                {name:'Gustav',country:'Sweden'},
+                {name:'Birgit',country:'Denmark'},
+                {name:'Mary',country:'England'},
+                {name:'Kai',country:'Norway'}
+                ];
+        });
+        app.controller('names2Ctrl', function($scope) {
+            $scope.names = [
+                'Jani',
+                'Carl',
+                'Margareth',
+                'Hege',
+                'Joe',
+                'Gustav',
+                'Birgit',
+                'Mary',
+                'Kai'
+            ];
+        });
+	</script>
+</head>
+<body>
+	<div class="topo" ng-app="myApp">
+		<div ng-controller="personCtrl">
+            <p>O nome é {{ lastName | uppercase }}</p>
+        </div>
+        <div ng-controller="namesCtrl">
+            <p>Looping with objects:</p>
+            <ul>
+                <li ng-repeat="x in names | orderBy:'country'">
+                    {{ x.name + ', ' + x.country }}
+                </li>
+            </ul>
+        </div>
+        <div ng-controller="names2Ctrl">
+            <p>Type a letter in the input field:</p>
+            <p><input type="text" ng-model="test"></p>
+            <ul>
+                <li ng-repeat="x in names | filter:test">
+                  {{ x }}
+                </li>
+            </ul>
+        </div>
+	</div>
+	<br><br>
+	<a class="btn btn-info btn-sm" href="index.html" role="button">Voltar</a>
+</body>
+</html>

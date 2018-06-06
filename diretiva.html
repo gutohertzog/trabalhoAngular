@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Módulo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- JQUERY -->
+	<script src="js/jquery-3.3.1.js"></script>
+
+	<!-- POPPER -->
+	<script src="js/popper.js"></script>
+
+	<!-- BOOTSTRAP v4.1 -->
+	<link rel="stylesheet" type="text/css" media="screen" href="bootstrap-4.1.1/css/bootstrap.css" />
+	<script src="bootstrap-4.1.1/js/bootstrap.js"></script>
+	<!-- https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+
+	<!-- ANGULARJS -->
+	<script src="angular-1.6.10/angular.js"></script>
+
+	<!-- arquivos de configuração personalizados -->
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<!-- <script src="main.js"></script> -->
+	<script>
+		var app = angular.module("meuApp", []);
+		app.directive("testeDiretiva", function() {
+			return {
+				template : "<h1>Feito por uma diretiva!</h1>"
+			};
+		});
+	</script>
+</head>
+<body>
+	<div class="topo" ng-app="meuApp">
+		<h4>ng-app ng-init ng-model</h4>
+		<div ng-init="primeiroNome='Guto'">
+			<p>Nome: <input type="text" ng-model="primeiroNome"></p>
+			<p>Você escreveu: {{ primeiroNome }}</p>	
+		</div>
+		<br>
+		<div ng-init="quantidade=1;preco=5">
+			Quantidade: <input type="number" ng-model="quantidade"><br>
+			Custo:      <input type="number" ng-model="preco"><br>
+			
+			Total em Real: {{ quantidade * preco }}
+		</div>
+		<br>
+		<div ng-init="nomes=['Augusto','Evandro','André']">
+			<ul>
+				<li ng-repeat="nome in nomes">
+				{{ nome }}
+				</li>
+			</ul>
+		</div>
+		<br>
+		<div ng-init="nomes2=[
+				{nome:'Augusto',pais:'EUA'},
+				{nome:'Evandro',pais:'Itália'},
+				{nome:'André',pais:'França'}]">
+			<ul>
+				<li ng-repeat="x in nomes2">
+					{{ x.nome + ', ' + x.pais }}
+				</li>
+			</ul>
+		</div>
+		<br>
+		<teste-diretiva></teste-diretiva>
+		<div teste-diretiva></div>
+	</div>
+	<br><br>
+	<a class="btn btn-info btn-sm" href="index.html" role="button">Voltar</a>
+</body>
+</html>
